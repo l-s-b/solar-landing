@@ -3,352 +3,180 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solar Comunicación | Agencia de Comunicación Digital</title>
+  <title data-es="Solar Comunicación | Agencia de Comunicación Digital" data-en="Solar Comunicación | Digital Communication Agency">Solar Comunicación | Agencia de Comunicación Digital</title>
   <meta name="description" content="Solar Comunicación – Estrategia, contenido y creatividad al servicio de marcas que quieren crecer en digital." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --red: #dd4912;
-      --orange: #f39d28;
-      --yellow: #fade3f;
-      --dark: #100f0d;
-      --cream: #f0e6c4;
-      --red-dark: #c23e0e;
-    }
-
+    :root { --red:#dd4912; --orange:#f39d28; --yellow:#fade3f; --dark:#100f0d; --cream:#f0e6c4; --red-dark:#c23e0e; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Red Hat Display', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { font-family:'Red Hat Display',sans-serif; background:var(--cream); color:var(--dark); line-height:1.6; overflow-x:hidden; }
 
     /* NAV */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 4rem;
-      background: var(--cream);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(221,73,18,0.15);
-    }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 4rem; background:var(--cream); position:sticky; top:0; z-index:100; border-bottom:1px solid rgba(221,73,18,0.15); gap:1rem; flex-wrap:wrap; }
+    .logo { display:flex; align-items:center; }
+    .nav-right { display:flex; align-items:center; gap:1rem; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--dark); font-size:14px; font-weight:500; letter-spacing:0.04em; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--red); }
 
-    .logo { display: flex; align-items: center; }
+    .btn-primary { background:var(--red); color:white; border:none; padding:0.65rem 1.5rem; border-radius:4px; font-family:inherit; font-size:14px; font-weight:500; cursor:pointer; letter-spacing:0.03em; transition:background 0.2s; text-decoration:none; display:inline-block; }
+    .btn-primary:hover { background:var(--red-dark); }
+    .btn-outline { background:transparent; color:var(--red); border:2px solid var(--red); padding:0.65rem 1.5rem; border-radius:4px; font-family:inherit; font-size:14px; font-weight:500; cursor:pointer; letter-spacing:0.03em; transition:all 0.2s; text-decoration:none; display:inline-block; }
+    .btn-outline:hover { background:var(--red); color:white; }
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--red); }
-
-    .btn-primary {
-      background: var(--red);
-      color: white;
-      border: none;
-      padding: 0.65rem 1.5rem;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      letter-spacing: 0.03em;
-      transition: background 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: var(--red-dark); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--red);
-      border: 2px solid var(--red);
-      padding: 0.65rem 1.5rem;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      letter-spacing: 0.03em;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-outline:hover { background: var(--red); color: white; }
+    /* LANG TOGGLE */
+    .lang-btn { display:flex; align-items:center; gap:6px; background:transparent; border:1.5px solid rgba(221,73,18,0.4); border-radius:20px; padding:5px 12px; font-family:inherit; font-size:12px; font-weight:600; color:var(--dark); cursor:pointer; letter-spacing:0.08em; transition:all 0.2s; white-space:nowrap; }
+    .lang-btn:hover { border-color:var(--red); color:var(--red); }
+    .lang-btn .flag { font-size:14px; }
 
     /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 5rem 4rem 4rem;
-      gap: 3rem;
-      min-height: 88vh;
-      position: relative;
-      overflow: hidden;
-    }
+    .hero { display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:5rem 4rem 4rem; gap:3rem; min-height:88vh; position:relative; overflow:hidden; }
+    .blob { position:absolute; z-index:0; pointer-events:none; }
+    .blob1 { width:360px; height:360px; background:var(--yellow); opacity:0.3; top:-60px; right:100px; border-radius:60% 40% 55% 45%; }
+    .blob2 { width:220px; height:220px; background:var(--orange); opacity:0.2; bottom:80px; right:50px; border-radius:45% 55% 40% 60%; }
+    .hero-content { position:relative; z-index:1; }
+    .eyebrow { font-size:12px; font-weight:500; letter-spacing:0.15em; color:var(--red); text-transform:uppercase; margin-bottom:1rem; }
+    .hero h1 { font-size:clamp(2.2rem,4vw,3.2rem); font-weight:700; line-height:1.15; margin-bottom:1.5rem; }
+    .hero h1 span { color:var(--red); }
+    .hero p { font-size:1.1rem; color:#3a3530; max-width:480px; margin-bottom:2rem; line-height:1.7; }
+    .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; }
+    .hero-visual { position:relative; z-index:1; }
+    .stat-card { background:white; border-radius:16px; padding:1.5rem 1.8rem; box-shadow:0 4px 24px rgba(0,0,0,0.08); margin-bottom:1rem; }
+    .stat-card .label { font-size:12px; color:#888; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.4rem; }
+    .stat-card .value { font-size:2.4rem; font-weight:700; color:var(--red); line-height:1; }
+    .stat-card .sub { font-size:13px; color:#666; margin-top:0.3rem; }
+    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .stat-mini { background:white; border-radius:12px; padding:1.2rem 1.4rem; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+    .stat-mini .label { font-size:11px; color:#999; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.3rem; }
+    .stat-mini .value { font-size:1.8rem; font-weight:700; color:var(--dark); }
+    .stat-mini.ac1 .value { color:var(--orange); }
+    .stat-mini.ac2 .value { color:var(--red); }
+    .stat-mini.ac3 { background:var(--red); }
+    .stat-mini.ac3 .label { color:rgba(255,255,255,0.7); }
+    .stat-mini.ac3 .value { color:white; }
 
-    .blob {
-      position: absolute;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .blob1 {
-      width: 360px; height: 360px;
-      background: var(--yellow);
-      opacity: 0.3;
-      top: -60px; right: 100px;
-      border-radius: 60% 40% 55% 45%;
-    }
-    .blob2 {
-      width: 220px; height: 220px;
-      background: var(--orange);
-      opacity: 0.2;
-      bottom: 80px; right: 50px;
-      border-radius: 45% 55% 40% 60%;
-    }
-
-    .hero-content { position: relative; z-index: 1; }
-    .eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      color: var(--red);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 span { color: var(--red); }
-    .hero p {
-      font-size: 1.1rem;
-      color: #3a3530;
-      max-width: 480px;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .hero-visual { position: relative; z-index: 1; }
-
-    .stat-card {
-      background: white;
-      border-radius: 16px;
-      padding: 1.5rem 1.8rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      margin-bottom: 1rem;
-    }
-    .stat-card .label { font-size: 12px; color: #888; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
-    .stat-card .value { font-size: 2.4rem; font-weight: 700; color: var(--red); line-height: 1; }
-    .stat-card .sub { font-size: 13px; color: #666; margin-top: 0.3rem; }
-
-    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat-mini {
+    /* VALUE CARDS */
+    .value-card {
       background: white;
       border-radius: 12px;
       padding: 1.2rem 1.4rem;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+      transition: transform 0.2s;
     }
-    .stat-mini .label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
-    .stat-mini .value { font-size: 1.8rem; font-weight: 700; color: var(--dark); }
-    .stat-mini.ac1 .value { color: var(--orange); }
-    .stat-mini.ac2 .value { color: var(--red); }
-    .stat-mini.ac3 { background: var(--red); }
-    .stat-mini.ac3 .label { color: rgba(255,255,255,0.7); }
-    .stat-mini.ac3 .value { color: white; }
-
-    /* SECCIONES */
-    section { padding: 5rem 4rem; }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      color: var(--red);
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 1rem;
-    }
-    .section-title span { color: var(--red); }
-    .section-sub {
-      font-size: 1rem;
-      color: #5a4f44;
-      max-width: 520px;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-    }
+    .value-card:last-child { margin-bottom: 0; }
+    .value-card:hover { transform: translateX(4px); }
+    .value-card-accent { background: var(--red); }
+    .value-card-accent .value-title { color: white; }
+    .value-card-accent .value-desc { color: rgba(255,255,255,0.8); }
+    .value-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .value-title { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.15rem; }
+    .value-desc { font-size: 0.8rem; color: #7a6f65; line-height: 1.4; }
+    section { padding:5rem 4rem; }
+    .section-label { font-size:12px; font-weight:500; letter-spacing:0.15em; color:var(--red); text-transform:uppercase; margin-bottom:0.75rem; }
+    .section-title { font-size:clamp(1.8rem,3vw,2.4rem); font-weight:700; color:var(--dark); margin-bottom:1rem; }
+    .section-title span { color:var(--red); }
+    .section-sub { font-size:1rem; color:#5a4f44; max-width:520px; line-height:1.7; margin-bottom:3rem; }
 
     /* SERVICIOS */
-    .services-bg { background: white; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .services-bg { background:white; }
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; }
+    .service-card { background:var(--cream); border-radius:12px; padding:1.8rem; transition:transform 0.2s; position:relative; overflow:hidden; }
+    .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+    .service-card:nth-child(1)::before { background:var(--red); }
+    .service-card:nth-child(2)::before { background:var(--orange); }
+    .service-card:nth-child(3)::before { background:var(--yellow); }
+    .service-card:nth-child(4)::before { background:var(--red); }
+    .service-card:hover { transform:translateY(-4px); }
+    .service-icon { font-size:28px; margin-bottom:1rem; }
+    .service-card h3 { font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem; }
+    .service-card p { font-size:0.875rem; color:#6b5f53; line-height:1.6; }
 
-    .service-card {
-      background: var(--cream);
-      border-radius: 12px;
-      padding: 1.8rem;
-      transition: transform 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-    }
-    .service-card:nth-child(1)::before { background: var(--red); }
-    .service-card:nth-child(2)::before { background: var(--orange); }
-    .service-card:nth-child(3)::before { background: var(--yellow); }
-    .service-card:nth-child(4)::before { background: var(--red); }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 28px; margin-bottom: 1rem; }
-    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; }
-    .service-card p { font-size: 0.875rem; color: #6b5f53; line-height: 1.6; }
+    /* CASOS */
+    .casos-bg { background:var(--dark); }
+    .casos-bg .section-label { color:var(--yellow); }
+    .casos-bg .section-title { color:white; }
+    .casos-bg .section-sub { color:#aaa; }
+    .casos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+    .caso-card { background:#1e1c19; border-radius:12px; padding:2rem; border:1px solid #2e2b26; transition:border-color 0.2s; }
+    .caso-card:hover { border-color:var(--orange); }
+    .caso-tag { display:inline-block; background:rgba(243,157,40,0.15); color:var(--orange); font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:4px; margin-bottom:1rem; }
+    .caso-card h3 { font-size:1.1rem; font-weight:700; color:white; margin-bottom:0.5rem; }
+    .caso-card p { font-size:0.875rem; color:#999; line-height:1.6; margin-bottom:1.5rem; }
+    .caso-metric { display:flex; gap:1.5rem; }
+    .metric-num { font-size:1.8rem; font-weight:700; color:var(--orange); line-height:1; }
+    .metric-desc { font-size:11px; color:#777; margin-top:2px; }
 
-    /* CASOS DE ÉXITO */
-    .casos-bg { background: var(--dark); }
-    .casos-bg .section-label { color: var(--yellow); }
-    .casos-bg .section-title { color: white; }
-    .casos-bg .section-sub { color: #aaa; }
-
-    .casos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-
-    .caso-card {
-      background: #1e1c19;
-      border-radius: 12px;
-      padding: 2rem;
-      border: 1px solid #2e2b26;
-      transition: border-color 0.2s;
-    }
-    .caso-card:hover { border-color: var(--orange); }
-    .caso-tag {
-      display: inline-block;
-      background: rgba(243,157,40,0.15);
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-    .caso-card h3 { font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
-    .caso-card p { font-size: 0.875rem; color: #999; line-height: 1.6; margin-bottom: 1.5rem; }
-    .caso-metric { display: flex; gap: 1.5rem; }
-    .metric-num { font-size: 1.8rem; font-weight: 700; color: var(--orange); line-height: 1; }
-    .metric-desc { font-size: 11px; color: #777; margin-top: 2px; }
-
-    /* CONFIANZA */
-    .trust-section { background: white; }
-    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
-    .trust-item { padding: 1.5rem 1rem; }
-    .trust-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .trust-item h4 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
-    .trust-item p { font-size: 0.85rem; color: #7a6f65; line-height: 1.5; }
+    /* EQUIPO */
+    .team-section { background:white; overflow:hidden; }
+    .carousel-wrapper { position:relative; }
+    .carousel-track { display:flex; gap:1.5rem; transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); will-change:transform; }
+    .team-card { background:var(--cream); border-radius:16px; padding:2rem 1.8rem; min-width:240px; max-width:240px; flex-shrink:0; text-align:center; position:relative; overflow:hidden; transition:transform 0.2s; }
+    .team-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--red); }
+    .team-card:nth-child(2)::before { background:var(--orange); }
+    .team-card:nth-child(3)::before { background:var(--yellow); }
+    .team-card:nth-child(4)::before { background:var(--red); }
+    .team-card:nth-child(5)::before { background:var(--orange); }
+    .team-card:nth-child(6)::before { background:var(--yellow); }
+    .team-card:hover { transform:translateY(-4px); }
+    .team-photo { width:96px; height:96px; border-radius:50%; object-fit:cover; margin:0 auto 1rem; display:block; border:3px solid white; box-shadow:0 2px 12px rgba(0,0,0,0.1); }
+    .team-initials { width:96px; height:96px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.6rem; font-weight:700; color:white; margin:0 auto 1rem; border:3px solid white; box-shadow:0 2px 12px rgba(0,0,0,0.1); }
+    .ti1{background:var(--red);} .ti2{background:var(--orange);} .ti3{background:#8B4513;} .ti4{background:var(--dark);} .ti5{background:#5a3e2b;} .ti6{background:var(--red);}
+    .team-card h3 { font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:0.25rem; }
+    .team-card .role { font-size:12px; color:var(--red); font-weight:500; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:0.75rem; }
+    .team-card p { font-size:0.8rem; color:#6b5f53; line-height:1.5; }
+    .carousel-controls { display:flex; justify-content:center; gap:1rem; margin-top:2rem; align-items:center; }
+    .carousel-btn { width:40px; height:40px; border-radius:50%; border:2px solid var(--red); background:transparent; color:var(--red); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; font-family:inherit; }
+    .carousel-btn:hover { background:var(--red); color:white; }
+    .carousel-btn:disabled { opacity:0.3; cursor:default; }
+    .carousel-dots { display:flex; gap:6px; }
+    .dot { width:8px; height:8px; border-radius:50%; background:#ccc; cursor:pointer; transition:background 0.2s,transform 0.2s; }
+    .dot.active { background:var(--red); transform:scale(1.3); }
 
     /* TESTIMONIOS */
-    .testimonios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .testimonio-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.8rem;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    }
-    .stars { color: var(--orange); font-size: 14px; margin-bottom: 0.75rem; letter-spacing: 2px; }
-    .testimonio-card p { font-size: 0.9rem; color: #5a4f44; line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
-    .testimonio-author { display: flex; align-items: center; gap: 0.75rem; }
-    .avatar {
-      width: 38px; height: 38px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 13px; color: white;
-      flex-shrink: 0;
-    }
-    .av1 { background: var(--red); }
-    .av2 { background: var(--orange); }
-    .av3 { background: var(--dark); }
-    .author-name { font-size: 14px; font-weight: 700; color: var(--dark); }
-    .author-role { font-size: 12px; color: #999; }
+    .testimonios-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+    .testimonio-card { background:white; border-radius:12px; padding:1.8rem; box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+    .stars { color:var(--orange); font-size:14px; margin-bottom:0.75rem; letter-spacing:2px; }
+    .testimonio-card p { font-size:0.9rem; color:#5a4f44; line-height:1.7; margin-bottom:1.2rem; font-style:italic; }
+    .testimonio-author { display:flex; align-items:center; gap:0.75rem; }
+    .avatar { width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; color:white; flex-shrink:0; }
+    .av1{background:var(--red);} .av2{background:var(--orange);} .av3{background:var(--dark);}
+    .author-name { font-size:14px; font-weight:700; color:var(--dark); }
+    .author-role { font-size:12px; color:#999; }
 
-    /* CTA FINAL */
-    .cta-section {
-      background: var(--red);
-      color: white;
-      text-align: center;
-      padding: 5rem 4rem;
-    }
-    .cta-section h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; margin-bottom: 1rem; }
-    .cta-section p { font-size: 1.05rem; opacity: 0.9; max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; }
-    .btn-white {
-      background: white;
-      color: var(--red);
-      border: none;
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-white:hover { opacity: 0.9; }
+    /* CTA */
+    .cta-section { background:var(--red); color:white; text-align:center; padding:5rem 4rem; }
+    .cta-section h2 { font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; margin-bottom:1rem; }
+    .cta-section p { font-size:1.05rem; opacity:0.9; max-width:500px; margin:0 auto 2rem; line-height:1.7; }
+    .btn-white { background:white; color:var(--red); border:none; padding:0.85rem 2rem; border-radius:4px; font-family:inherit; font-size:15px; font-weight:700; cursor:pointer; transition:opacity 0.2s; text-decoration:none; display:inline-block; }
+    .btn-white:hover { opacity:0.9; }
 
     /* FOOTER */
-    footer {
-      background: var(--dark);
-      color: #888;
-      padding: 2.5rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 13px;
-    }
-    footer a { color: var(--orange); text-decoration: none; }
-    .footer-contact { display: flex; gap: 2rem; flex-wrap: wrap; }
+    footer { background:var(--dark); color:#888; padding:2.5rem 4rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:13px; }
+    footer a { color:var(--orange); text-decoration:none; }
+    .footer-contact { display:flex; gap:2rem; flex-wrap:wrap; }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; min-height: auto; }
-      .hero-visual { display: none; }
-      section { padding: 3rem 1.5rem; }
-      .cta-section { padding: 3rem 1.5rem; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
-      .footer-contact { flex-direction: column; gap: 0.75rem; }
+    @media(max-width:768px){
+      nav{padding:1rem 1.5rem;}
+      .nav-links{display:none;}
+      .hero{grid-template-columns:1fr;padding:3rem 1.5rem;min-height:auto;}
+      .hero-visual{display:none;}
+      section{padding:3rem 1.5rem;}
+      .cta-section{padding:3rem 1.5rem;}
+      footer{padding:2rem 1.5rem;flex-direction:column;align-items:flex-start;}
+      .footer-contact{flex-direction:column;gap:0.75rem;}
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">
     <svg height="44" viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
@@ -361,17 +189,23 @@
       <line x1="38" y1="32" x2="41" y2="35" stroke="#f39d28" stroke-width="2" stroke-linecap="round"/>
       <line x1="38" y1="12" x2="41" y2="9" stroke="#f39d28" stroke-width="2" stroke-linecap="round"/>
       <line x1="18" y1="32" x2="15" y2="35" stroke="#f39d28" stroke-width="2" stroke-linecap="round"/>
-      <text x="54" y="18" font-family="'Red Hat Display', sans-serif" font-weight="700" font-size="17" letter-spacing="4" fill="#dd4912">SOLAR</text>
-      <text x="54" y="34" font-family="'Red Hat Display', sans-serif" font-weight="400" font-size="10" letter-spacing="4" fill="#100f0d">COMUNICACIÓN</text>
+      <text x="54" y="18" font-family="'Red Hat Display',sans-serif" font-weight="700" font-size="17" letter-spacing="4" fill="#dd4912">SOLAR</text>
+      <text x="54" y="34" font-family="'Red Hat Display',sans-serif" font-weight="400" font-size="10" letter-spacing="4" fill="#100f0d">COMUNICACIÓN</text>
     </svg>
   </div>
   <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#casos">Casos de éxito</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+    <li><a href="#casos" data-es="Casos de éxito" data-en="Success Stories">Casos de éxito</a></li>
+    <li><a href="#nosotros" data-es="Nosotros" data-en="About Us">Nosotros</a></li>
+    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
   </ul>
-  <a href="#contacto" class="btn-primary">Hablemos</a>
+  <div class="nav-right">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">
+      <span class="flag">🇬🇧</span>
+      <span id="langLabel">EN</span>
+    </button>
+    <a href="#contacto" class="btn-primary" data-es="Hablemos" data-en="Let's talk">Hablemos</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -379,36 +213,41 @@
   <div class="blob blob1"></div>
   <div class="blob blob2"></div>
   <div class="hero-content">
-    <p class="eyebrow">Agencia de comunicación digital</p>
-    <h1>Tu marca merece<br><span>brillar</span> en digital</h1>
-    <p>Estrategia, contenido y creatividad al servicio de marcas que quieren crecer. Hacemos que tu comunicación conecte, convierta y dure.</p>
+    <p class="eyebrow" data-es="Agencia de comunicación digital" data-en="Digital communication agency">Agencia de comunicación digital</p>
+    <h1 data-es="Tu marca merece<br><span>brillar</span> en digital" data-en="Your brand deserves<br>to <span>shine</span> online">Tu marca merece<br><span>brillar</span> en digital</h1>
+    <p data-es="Estrategia, contenido y creatividad al servicio de marcas que quieren crecer. Hacemos que tu comunicación conecte, convierta y dure." data-en="Strategy, content and creativity at the service of brands that want to grow. We make your communication connect, convert and last.">Estrategia, contenido y creatividad al servicio de marcas que quieren crecer. Hacemos que tu comunicación conecte, convierta y dure.</p>
     <div class="hero-cta">
-      <a href="#contacto" class="btn-primary">Quiero saber más</a>
-      <a href="#casos" class="btn-outline">Ver casos de éxito</a>
+      <a href="#contacto" class="btn-primary" data-es="Quiero saber más" data-en="I want to learn more">Quiero saber más</a>
+      <a href="#casos" class="btn-outline" data-es="Ver casos de éxito" data-en="See success stories">Ver casos de éxito</a>
     </div>
   </div>
   <div class="hero-visual">
-    <div class="stat-card">
-      <div class="label">Clientes activos</div>
-      <div class="value">+80</div>
-      <div class="sub">marcas que confían en nosotros</div>
+    <div class="value-card">
+      <div class="value-icon">🌞</div>
+      <div class="value-text">
+        <div class="value-title" data-es="Estrategia a medida" data-en="Tailored strategy">Estrategia a medida</div>
+        <div class="value-desc" data-es="Sin plantillas, sin atajos. Cada marca tiene su propio camino." data-en="No templates, no shortcuts. Every brand has its own path.">Sin plantillas, sin atajos. Cada marca tiene su propio camino.</div>
+      </div>
     </div>
-    <div class="stat-grid">
-      <div class="stat-mini ac1">
-        <div class="label">Crecimiento promedio</div>
-        <div class="value">3x</div>
+    <div class="value-card">
+      <div class="value-icon">🎯</div>
+      <div class="value-text">
+        <div class="value-title" data-es="Todo bajo un mismo techo" data-en="Everything under one roof">Todo bajo un mismo techo</div>
+        <div class="value-desc" data-es="Branding, contenido y publicidad integrados en una sola visión." data-en="Branding, content and advertising integrated into one vision.">Branding, contenido y publicidad integrados en una sola visión.</div>
       </div>
-      <div class="stat-mini ac2">
-        <div class="label">Años de experiencia</div>
-        <div class="value">8+</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <div class="value-text">
+        <div class="value-title" data-es="Trato directo" data-en="Direct relationship">Trato directo</div>
+        <div class="value-desc" data-es="Hablás siempre con quien trabaja tu cuenta. Sin intermediarios." data-en="You always talk to whoever works on your account. No middlemen.">Hablás siempre con quien trabaja tu cuenta. Sin intermediarios.</div>
       </div>
-      <div class="stat-mini">
-        <div class="label">Campañas lanzadas</div>
-        <div class="value">320</div>
-      </div>
-      <div class="stat-mini ac3">
-        <div class="label">Satisfacción</div>
-        <div class="value">98%</div>
+    </div>
+    <div class="value-card value-card-accent">
+      <div class="value-icon">✦</div>
+      <div class="value-text">
+        <div class="value-title" data-es="Comunicación con identidad" data-en="Communication with identity">Comunicación con identidad</div>
+        <div class="value-desc" data-es="Que realmente represente quiénes son, no solo que se vea bien." data-en="That truly represents who you are, not just looks good.">Que realmente represente quiénes son, no solo que se vea bien.</div>
       </div>
     </div>
   </div>
@@ -416,133 +255,154 @@
 
 <!-- SERVICIOS -->
 <section id="servicios" class="services-bg">
-  <div class="section-label">Lo que hacemos</div>
-  <div class="section-title">Servicios diseñados<br>para <span>resultados reales</span></div>
-  <div class="section-sub">Cada estrategia está pensada para tu negocio, no para el algoritmo. Trabajamos con vos desde la idea hasta la métrica.</div>
+  <div class="section-label" data-es="Lo que hacemos" data-en="What we do">Lo que hacemos</div>
+  <div class="section-title" data-es="Servicios diseñados<br>para <span>resultados reales</span>" data-en="Services designed<br>for <span>real results</span>">Servicios diseñados<br>para <span>resultados reales</span></div>
+  <div class="section-sub" data-es="Cada estrategia está pensada para tu negocio, no para el algoritmo. Trabajamos con vos desde la idea hasta la métrica." data-en="Every strategy is built for your business, not the algorithm. We work with you from idea to metric.">Cada estrategia está pensada para tu negocio, no para el algoritmo. Trabajamos con vos desde la idea hasta la métrica.</div>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-icon">📣</div>
-      <h3>Estrategia de contenido</h3>
-      <p>Planificamos, creamos y gestionamos el contenido que le habla a tu audiencia y genera comunidad real.</p>
+      <h3 data-es="Estrategia de contenido" data-en="Content Strategy">Estrategia de contenido</h3>
+      <p data-es="Planificamos, creamos y gestionamos el contenido que le habla a tu audiencia y genera comunidad real." data-en="We plan, create and manage content that speaks to your audience and builds a real community.">Planificamos, creamos y gestionamos el contenido que le habla a tu audiencia y genera comunidad real.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">📱</div>
-      <h3>Community Management</h3>
-      <p>Presencia activa, respuestas rápidas y una voz coherente en todas tus redes sociales.</p>
+      <h3 data-es="Community Management" data-en="Community Management">Community Management</h3>
+      <p data-es="Presencia activa, respuestas rápidas y una voz coherente en todas tus redes sociales." data-en="Active presence, quick responses and a consistent voice across all your social media channels.">Presencia activa, respuestas rápidas y una voz coherente en todas tus redes sociales.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">🎯</div>
-      <h3>Publicidad digital</h3>
-      <p>Campañas en Meta, Google y TikTok orientadas a conversión, con seguimiento y optimización constante.</p>
+      <h3 data-es="Publicidad digital" data-en="Digital Advertising">Publicidad digital</h3>
+      <p data-es="Campañas en Meta, Google y TikTok orientadas a conversión, con seguimiento y optimización constante." data-en="Campaigns on Meta, Google and TikTok focused on conversion, with continuous tracking and optimization.">Campañas en Meta, Google y TikTok orientadas a conversión, con seguimiento y optimización constante.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">✦</div>
-      <h3>Identidad & Branding</h3>
-      <p>Construcción y consistencia de marca en todos los canales digitales. Tu imagen, sin improvisaciones.</p>
+      <h3 data-es="Identidad & Branding" data-en="Identity & Branding">Identidad & Branding</h3>
+      <p data-es="Construcción y consistencia de marca en todos los canales digitales. Tu imagen, sin improvisaciones." data-en="Brand building and consistency across all digital channels. Your image, no compromises.">Construcción y consistencia de marca en todos los canales digitales. Tu imagen, sin improvisaciones.</p>
     </div>
   </div>
 </section>
 
 <!-- CASOS DE ÉXITO -->
 <section id="casos" class="casos-bg">
-  <div class="section-label">Casos de éxito</div>
-  <div class="section-title" style="color:white">Resultados que <span style="color:var(--orange)">hablan</span> solos</div>
-  <div class="section-sub">No solo prometemos crecimiento. Acá hay tres ejemplos de lo que logramos con nuestros clientes.</div>
+  <div class="section-label" data-es="Casos de éxito" data-en="Success Stories">Casos de éxito</div>
+  <div class="section-title" style="color:white" data-es="Resultados que <span style='color:var(--orange)'>hablan</span> solos" data-en="Results that <span style='color:var(--orange)'>speak</span> for themselves">Resultados que <span style="color:var(--orange)">hablan</span> solos</div>
+  <div class="section-sub" data-es="No solo prometemos crecimiento. Acá hay tres ejemplos de lo que logramos con nuestros clientes." data-en="We don't just promise growth. Here are three examples of what we achieved with our clients.">No solo prometemos crecimiento. Acá hay tres ejemplos de lo que logramos con nuestros clientes.</div>
   <div class="casos-grid">
     <div class="caso-card">
-      <span class="caso-tag">E-commerce</span>
-      <h3>Marca de indumentaria local</h3>
-      <p>Rediseñamos su comunicación en Instagram y lanzamos campañas de performance. En 3 meses triplicaron sus ventas online.</p>
+      <span class="caso-tag" data-es="Derecho" data-en="Legal">Derecho</span>
+      <h3>Mirada Legal</h3>
+      <p data-es="Estudio jurídico para el que desarrollamos branding completo, estrategia de contenido y publicidad en Instagram, TikTok y YouTube. Construimos una identidad profesional con voz propia en el mundo digital." data-en="Law firm for which we developed full branding, content strategy and advertising on Instagram, TikTok and YouTube. We built a professional identity with its own voice in the digital world.">Estudio jurídico para el que desarrollamos branding completo, estrategia de contenido y publicidad en Instagram, TikTok y YouTube. Construimos una identidad profesional con voz propia en el mundo digital.</p>
       <div class="caso-metric">
-        <div><div class="metric-num">3x</div><div class="metric-desc">Ventas online</div></div>
-        <div><div class="metric-num">+18k</div><div class="metric-desc">Nuevos seguidores</div></div>
+        <div><div class="metric-num">3</div><div class="metric-desc" data-es="Plataformas activas" data-en="Active platforms">Plataformas activas</div></div>
+        <div><div class="metric-num">360°</div><div class="metric-desc" data-es="Branding + contenido + ads" data-en="Branding + content + ads">Branding + contenido + ads</div></div>
       </div>
     </div>
     <div class="caso-card">
-      <span class="caso-tag">Gastronomía</span>
-      <h3>Restaurante en expansión</h3>
-      <p>Gestión integral de redes y campañas de Google para captación. Logramos llenar su agenda de reservas en temporada baja.</p>
+      <span class="caso-tag" data-es="Educación" data-en="Education">Educación</span>
+      <h3>Hey Lucio</h3>
+      <p data-es="Profesor de inglés especializado en accent coaching. Construimos la marca desde cero: branding, identidad visual y contenido para Instagram, TikTok y YouTube. Una marca personal que conecta y genera comunidad real." data-en="English teacher specialized in accent coaching. We built the brand from scratch: branding, visual identity and content for Instagram, TikTok and YouTube. A personal brand that connects and builds a real community.">Profesor de inglés especializado en accent coaching. Construimos la marca desde cero: branding, identidad visual y contenido para Instagram, TikTok y YouTube. Una marca personal que conecta y genera comunidad real.</p>
       <div class="caso-metric">
-        <div><div class="metric-num">+60%</div><div class="metric-desc">Reservas</div></div>
-        <div><div class="metric-num">4.9★</div><div class="metric-desc">Reputación online</div></div>
+        <div><div class="metric-num">0→</div><div class="metric-desc" data-es="Marca construida desde cero" data-en="Brand built from scratch">Marca desde cero</div></div>
+        <div><div class="metric-num">3</div><div class="metric-desc" data-es="Canales digitales activos" data-en="Active digital channels">Canales activos</div></div>
       </div>
     </div>
     <div class="caso-card">
-      <span class="caso-tag">Servicios profesionales</span>
-      <h3>Estudio contable</h3>
-      <p>Posicionamos su marca en LinkedIn y desarrollamos contenido de autoridad. Duplicaron sus consultas de nuevos clientes.</p>
+      <span class="caso-tag" data-es="Inmobiliaria" data-en="Real Estate">Inmobiliaria</span>
+      <h3>Plus Inmobiliaria</h3>
+      <p data-es="Gestión de contenido en TikTok para una inmobiliaria en crecimiento. Generamos presencia digital en la plataforma de mayor crecimiento, llevando propiedades y servicios a nuevas audiencias." data-en="Content management on TikTok for a growing real estate agency. We built digital presence on the fastest-growing platform, bringing properties and services to new audiences.">Gestión de contenido en TikTok para una inmobiliaria en crecimiento. Generamos presencia digital en la plataforma de mayor crecimiento, llevando propiedades y servicios a nuevas audiencias.</p>
       <div class="caso-metric">
-        <div><div class="metric-num">2x</div><div class="metric-desc">Consultas nuevas</div></div>
-        <div><div class="metric-num">+5k</div><div class="metric-desc">Alcance mensual</div></div>
+        <div><div class="metric-num">TikTok</div><div class="metric-desc" data-es="Canal principal" data-en="Main channel">Canal principal</div></div>
+        <div><div class="metric-num">↑</div><div class="metric-desc" data-es="Nuevas audiencias alcanzadas" data-en="New audiences reached">Nuevas audiencias</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONFIANZA -->
-<section id="nosotros" class="trust-section">
-  <div class="section-label" style="text-align:center">Por qué elegirnos</div>
-  <div class="section-title" style="text-align:center; margin-bottom:3rem">Confianza que se construye<br>con <span>resultados</span></div>
-  <div class="trust-grid">
-    <div class="trust-item">
-      <div class="trust-icon">🌞</div>
-      <h4>Trato personalizado</h4>
-      <p>Sin plantillas genéricas. Cada cliente tiene su propio equipo y estrategia a medida.</p>
+<!-- EQUIPO -->
+<section id="nosotros" class="team-section">
+  <div class="section-label" data-es="El equipo" data-en="The team">El equipo</div>
+  <div class="section-title" data-es="Las personas detrás<br>de <span>Solar</span>" data-en="The people behind<br><span>Solar</span>">Las personas detrás<br>de <span>Solar</span></div>
+  <div class="section-sub" data-es="Somos un equipo creativo, estratégico y comprometido. Cada proyecto tiene personas reales trabajando detrás." data-en="We are a creative, strategic and committed team. Every project has real people working behind it.">Somos un equipo creativo, estratégico y comprometido. Cada proyecto tiene personas reales trabajando detrás.</div>
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="team-card">
+        <div class="team-initials ti1">NT</div>
+        <h3>Nicolás Taboro</h3>
+        <div class="role" data-es="Director Creativo & Estratega" data-en="Creative Director & Strategist">Director Creativo & Estratega</div>
+        <p data-es="Dirección creativa, estrategia general y relación con clientes. El cerebro detrás de cada campaña." data-en="Creative direction, general strategy and client relations. The brain behind every campaign.">Dirección creativa, estrategia general y relación con clientes. El cerebro detrás de cada campaña.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-initials ti2">TP</div>
+        <h3>Tina Palermo</h3>
+        <div class="role" data-es="Operaciones de Contenido" data-en="Content Operations">Operaciones de Contenido</div>
+        <p data-es="Programación, publicación y calendarización. Asegura que cada pieza llegue en el momento justo." data-en="Scheduling, publishing and content planning. Makes sure every piece lands at the right moment.">Programación, publicación y calendarización. Asegura que cada pieza llegue en el momento justo.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-initials ti3">AM</div>
+        <h3>Agustina Mettini</h3>
+        <div class="role" data-es="Branding & Diseño Visual" data-en="Branding & Visual Design">Branding & Diseño Visual</div>
+        <p data-es="Identidad visual, brand kits y sistemas gráficos. La voz estética de cada marca que trabajamos." data-en="Visual identity, brand kits and graphic systems. The aesthetic voice of every brand we work with.">Identidad visual, brand kits y sistemas gráficos. La voz estética de cada marca que trabajamos.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-initials ti4">ID</div>
+        <h3>Isis De Martini</h3>
+        <div class="role" data-es="Ventas & Relaciones Comerciales" data-en="Sales & Business Development">Ventas & Relaciones Comerciales</div>
+        <p data-es="Apertura de conversaciones y cierre de ventas. La primera cara de Solar con cada cliente nuevo." data-en="Opening conversations and closing deals. The first face of Solar every new client meets.">Apertura de conversaciones y cierre de ventas. La primera cara de Solar con cada cliente nuevo.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-initials ti5">SV</div>
+        <h3>Salvador Villafañe</h3>
+        <div class="role" data-es="Editor Audiovisual" data-en="Audiovisual Editor">Editor Audiovisual</div>
+        <p data-es="Edición de reels, subtítulos y ritmo audiovisual. Hace que cada video tenga la energía correcta." data-en="Reel editing, subtitles and audiovisual pacing. Makes every video feel just right.">Edición de reels, subtítulos y ritmo audiovisual. Hace que cada video tenga la energía correcta.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-initials ti6">LS</div>
+        <h3>Lucio San Bartolomé</h3>
+        <div class="role" data-es="Desarrollo Web & Landings" data-en="Web Development & Landings">Desarrollo Web & Landings</div>
+        <p data-es="Landings, páginas de conversión y estructuras digitales. Convierte estrategia en presencia web." data-en="Landing pages, conversion pages and digital structures. Turns strategy into web presence.">Landings, páginas de conversión y estructuras digitales. Convierte estrategia en presencia web.</p>
+      </div>
     </div>
-    <div class="trust-item">
-      <div class="trust-icon">📊</div>
-      <h4>Reportes transparentes</h4>
-      <p>Recibís informes claros cada mes. Sabés exactamente a dónde va tu inversión.</p>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">⚡</div>
-      <h4>Respuesta rápida</h4>
-      <p>Tiempo de respuesta promedio de menos de 2 horas en horario laboral.</p>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">🤝</div>
-      <h4>Equipo comprometido</h4>
-      <p>Tu negocio nos importa de verdad. Nos ponemos la camiseta desde el día uno.</p>
-    </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)">&#8592;</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <button class="carousel-btn" id="nextBtn" onclick="moveCarousel(1)">&#8594;</button>
   </div>
 </section>
 
 <!-- TESTIMONIOS -->
 <section>
-  <div class="section-label">Testimonios</div>
-  <div class="section-title">Lo que dicen<br>nuestros <span>clientes</span></div>
+  <div class="section-label" data-es="Testimonios" data-en="Testimonials">Testimonios</div>
+  <div class="section-title" data-es="Lo que dicen<br>nuestros <span>clientes</span>" data-en="What our<br><span>clients</span> say">Lo que dicen<br>nuestros <span>clientes</span></div>
   <div style="margin-bottom:3rem"></div>
   <div class="testimonios-grid">
     <div class="testimonio-card">
       <div class="stars">★★★★★</div>
-      <p>"Solar transformó por completo la forma en que comunicamos nuestra marca. Los resultados superaron todas nuestras expectativas desde el primer mes."</p>
+      <p data-es='"Trabajar con Solar nos ayudó a ordenar nuestra comunicación y mostrar nuestra forma de trabajar con claridad. Entendieron perfecto el tono que queríamos transmitir: profesional, humano y cercano. Hoy sentimos que nuestras redes realmente representan quiénes somos."' data-en='"Working with Solar helped us organize our communication and clearly show how we work. They perfectly understood the tone we wanted: professional, human and approachable. Today we feel our social media truly represents who we are."'>"Trabajar con Solar nos ayudó a ordenar nuestra comunicación y mostrar nuestra forma de trabajar con claridad. Entendieron perfecto el tono que queríamos transmitir: profesional, humano y cercano. Hoy sentimos que nuestras redes realmente representan quiénes somos."</p>
       <div class="testimonio-author">
-        <div class="avatar av1">MG</div>
+        <div class="avatar av1">ML</div>
         <div>
-          <div class="author-name">Martina García</div>
-          <div class="author-role">Dueña, Tienda Miel</div>
+          <div class="author-name">Mirada Legal</div>
         </div>
       </div>
     </div>
     <div class="testimonio-card">
       <div class="stars">★★★★★</div>
-      <p>"Lo mejor de trabajar con Solar es que entienden el negocio, no solo las redes. Siempre tienen propuestas creativas y orientadas a resultados concretos."</p>
+      <p data-es='"Estar en todas las redes, una necesidad a esta altura ineludible, deja de ser motivo de procrastinación gracias a ellos."' data-en='"Being on all social media — an unavoidable need at this point — stops being a reason to procrastinate thanks to them."'>"Estar en todas las redes, una necesidad a esta altura ineludible, deja de ser motivo de procrastinación gracias a ellos."</p>
       <div class="testimonio-author">
-        <div class="avatar av2">LR</div>
+        <div class="avatar av2">HL</div>
         <div>
-          <div class="author-name">Lucas Rodríguez</div>
-          <div class="author-role">CEO, Constructora LR</div>
+          <div class="author-name">Hey Lucio</div>
         </div>
       </div>
     </div>
     <div class="testimonio-card">
       <div class="stars">★★★★★</div>
-      <p>"Profesionales, creativos y muy organizados. Desde que arrancamos con Solar nuestra presencia digital creció de manera sostenida y notamos el impacto."</p>
+      <p data-es='"Con Solar trabajamos de manera integral el desarrollo de mi comunicación: desde la construcción de marca hasta el contenido y la publicidad. Supieron encontrar un tono que representa mi forma de trabajar y transformar ideas complejas en mensajes claros, dinámicos y cercanos."' data-en='"With Solar we worked holistically on my communication: from brand building to content and advertising. They found a tone that represents my way of working and turned complex ideas into clear, dynamic and approachable messages."'>"Con Solar trabajamos de manera integral el desarrollo de mi comunicación: desde la construcción de marca hasta el contenido y la publicidad. Supieron encontrar un tono que representa mi forma de trabajar y transformar ideas complejas en mensajes claros, dinámicos y cercanos."</p>
       <div class="testimonio-author">
-        <div class="avatar av3">SP</div>
+        <div class="avatar av3">PD</div>
         <div>
-          <div class="author-name">Sofía Peralta</div>
-          <div class="author-role">Directora, Estudio SP</div>
+          <div class="author-name">Paula Eva Díaz</div>
         </div>
       </div>
     </div>
@@ -551,20 +411,96 @@
 
 <!-- CTA FINAL -->
 <section id="contacto" class="cta-section">
-  <h2>¿Listo para que tu marca<br>brille en digital?</h2>
-  <p>Conversemos sobre tu negocio. Primera consulta sin cargo y sin compromiso.</p>
-  <a href="mailto:solarcomu@gmail.com" class="btn-white">Contactanos hoy</a>
+  <h2 data-es="¿Listo para que tu marca<br>brille en digital?" data-en="Ready for your brand<br>to shine online?">¿Listo para que tu marca<br>brille en digital?</h2>
+  <p data-es="Conversemos sobre tu negocio. Primera consulta sin cargo y sin compromiso." data-en="Let's talk about your business. First consultation free of charge, no commitment.">Conversemos sobre tu negocio. Primera consulta sin cargo y sin compromiso.</p>
+  <a href="mailto:hola@solarcomunicacion.com" class="btn-white" data-es="Contactanos hoy" data-en="Contact us today">Contactanos hoy</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span style="color:#555">© 2025 Solar Comunicación</span>
+  <span style="color:#555">© 2026 Solar Comunicación</span>
   <div class="footer-contact">
-    <span>✉ <a href="mailto:solarcomu@gmail.com">solarcomu@gmail.com</a></span>
-    <span>📱 +54 9 3425 16-0472</span>
+    <span>✉ <a href="mailto:hola@solarcomunicacion.com">hola@solarcomunicacion.com</a></span>
+    <span>📱 <a href="https://wa.me/5493425160472">+54 9 3425 16-0472</a></span>
     <span>📸 <a href="https://instagram.com/solarcomunicacion" target="_blank">@solarcomunicacion</a></span>
   </div>
 </footer>
+
+<script>
+  // TRANSLATION
+  let currentLang = 'es';
+
+  function toggleLang() {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    const btn = document.getElementById('langBtn');
+    const label = document.getElementById('langLabel');
+    const flag = btn.querySelector('.flag');
+
+    if (currentLang === 'en') {
+      label.textContent = 'ES';
+      flag.textContent = '🇦🇷';
+    } else {
+      label.textContent = 'EN';
+      flag.textContent = '🇬🇧';
+    }
+
+    document.querySelectorAll('[data-es][data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + currentLang);
+      if (text) el.innerHTML = text;
+    });
+
+    document.documentElement.lang = currentLang;
+  }
+
+  // CAROUSEL
+  (function() {
+    const track = document.getElementById('carouselTrack');
+    const cards = track.querySelectorAll('.team-card');
+    const dotsContainer = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let current = 0;
+
+    function getVisible() {
+      const w = track.parentElement.offsetWidth;
+      if (w < 500) return 1;
+      if (w < 780) return 2;
+      if (w < 1000) return 3;
+      return 4;
+    }
+
+    const total = cards.length;
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      const pages = Math.ceil(total / getVisible());
+      for (let i = 0; i < pages; i++) {
+        const d = document.createElement('div');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.onclick = () => goTo(i);
+        dotsContainer.appendChild(d);
+      }
+    }
+
+    function goTo(page) {
+      const vis = getVisible();
+      const maxPage = Math.ceil(total / vis) - 1;
+      current = Math.max(0, Math.min(page, maxPage));
+      const cardW = cards[0].offsetWidth + 24;
+      track.style.transform = `translateX(-${current * vis * cardW}px)`;
+      dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current >= maxPage;
+    }
+
+    function moveCarousel(dir) { goTo(current + dir); }
+    window.moveCarousel = moveCarousel;
+
+    buildDots();
+    goTo(0);
+    window.addEventListener('resize', () => { buildDots(); goTo(0); });
+  })();
+</script>
 
 </body>
 </html>
